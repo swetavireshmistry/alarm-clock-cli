@@ -1,0 +1,14 @@
+[
+    {
+        "id": "04410248",
+        "time": "10:32",
+        "label": "Wake up",
+        "is_active": true
+    },
+    {
+        "id": "6272dc2a",
+        "time": "10:52",
+        "label": "Meeting",
+        "is_active": true
+    }
+]
