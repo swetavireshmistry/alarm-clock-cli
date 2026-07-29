@@ -1,26 +1,74 @@
 [
-    {
-        "id": "04410248",
-        "time": "10:32",
-        "label": "Wake up",
-        "is_active": true
-    },
-    {
-        "id": "6272dc2a",
-        "time": "10:52",
-        "label": "Meeting",
-        "is_active": true
-    },
-    {
-        "id": "458a7a26",
-        "time": "07:30",
-        "label": "Wake up",
-        "is_active": true
-    },
-    {
-        "id": "4b437cb6",
-        "time": "2026-07-29 11:59",
-        "label": "Wake up",
-        "is_active": true
-    }
+  {
+    "id": "c826db33",
+    "time": "2026-07-30 07:35",
+    "label": "Wake up",
+    "is_active": true
+  },
+  {
+    "id": "a1b2c3d4",
+    "time": "2026-07-30 08:00",
+    "label": "Morning Run",
+    "is_active": true
+  },
+  {
+    "id": "99f8e7d6",
+    "time": "2026-07-30 12:30",
+    "label": "Lunch meeting",
+    "is_active": false
+  },
+  {
+    "id": "f5e4d3c2",
+    "time": "2026-07-29 14:15",
+    "label": "Dentist appointment",
+    "is_active": true
+  },
+  {
+    "id": "b7a6c5d4",
+    "time": "2026-07-29 14:00",
+    "label": "Team sync",
+    "is_active": true
+  },
+  {
+    "id": "88a9b0c1",
+    "time": "2026-07-29 18:00",
+    "label": "Gym",
+    "is_active": false
+  },
+  {
+    "id": "4c5d6e7f",
+    "time": "2026-07-30 09:00",
+    "label": "Client call",
+    "is_active": true
+  },
+  {
+    "id": "2a3b4c5d",
+    "time": "2026-07-30 13:15",
+    "label": "Lunch break",
+    "is_active": false
+  },
+  {
+    "id": "1a2b3c4d",
+    "time": "2026-07-31 07:00",
+    "label": "Early morning workout",
+    "is_active": true
+  },
+  {
+    "id": "7f8e9d0c",
+    "time": "2026-07-31 16:30",
+    "label": "Project deadline check",
+    "is_active": false
+  },
+  {
+    "id": "3d4e5f6a",
+    "time": "2026-08-01 06:00",
+    "label": "Sunrise run",
+    "is_active": true
+  },
+  {
+    "id": "5b6c7d8e",
+    "time": "2026-08-02 10:30",
+    "label": "Weekend breakfast",
+    "is_active": false
+  }
 ]
