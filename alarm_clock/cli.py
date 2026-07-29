@@ -2,14 +2,18 @@ import argparse
 import sys
 
 from alarm_clock.models import Alarm
-from alarm_clock.utils import validate_time_format
+from alarm_clock.utils import validate_time_format, is_time_in_future
 from alarm_clock.storage import add_alarm, get_alarm_by_id, load_alarms, delete_alarm as storage_delete_alarm, snooze_alarm
 from alarm_clock.core import start_monitoring
 
 def set_alarm(args: argparse.Namespace) -> None:
     """Handle the 'set' subcommand."""
     if not validate_time_format(args.time):
-        print(f"Error: Invalid time format '{args.time}'. Must be HH:MM in 24-hour format.")
+        print(f"Error: Invalid time format '{args.time}'. Must be YYYY-MM-DD HH:MM (24-hour).")
+        sys.exit(1)
+        
+    if not is_time_in_future(args.time):
+        print(f"Error: The alarm time '{args.time}' has already passed. Please set a future time.")
         sys.exit(1)
         
     alarm = Alarm(time=args.time, label=args.label)
@@ -26,11 +30,11 @@ def list_alarms(args: argparse.Namespace) -> None:
         print("No pending alarms.")
         return
         
-    print(f"{'ID':<10} | {'Time':<7} | {'Status':<8} | {'Label'}")
-    print("-" * 50)
+    print(f"{'ID':<10} | {'Time':<16} | {'Status':<8} | {'Label'}")
+    print("-" * 60)
     for alarm in alarms:
         status = "Active" if alarm.is_active else "Inactive"
-        print(f"{alarm.id:<10} | {alarm.time:<7} | {status:<8} | {alarm.label}")
+        print(f"{alarm.id:<10} | {alarm.time:<16} | {status:<8} | {alarm.label}")
 
 def delete_alarm_cli(args: argparse.Namespace) -> None:
     """Handle the 'delete' subcommand."""
@@ -70,7 +74,7 @@ def setup_parser() -> argparse.ArgumentParser:
 
     # 'set' command
     parser_set = subparsers.add_parser("set", help="Set a new alarm")
-    parser_set.add_argument("time", help="Time in HH:MM format (24-hour)")
+    parser_set.add_argument("time", help="Time in YYYY-MM-DD HH:MM format (24-hour)")
     parser_set.add_argument("label", nargs="?", default="Alarm", help="Optional label for the alarm")
     parser_set.set_defaults(func=set_alarm)
 

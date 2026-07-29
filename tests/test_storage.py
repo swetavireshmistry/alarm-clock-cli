@@ -17,8 +17,8 @@ class TestStorage(unittest.TestCase):
             os.remove(self.test_file)
             
     def test_save_and_load_alarms(self):
-        alarm1 = Alarm(time="08:00", label="Morning")
-        alarm2 = Alarm(time="12:00", label="Lunch")
+        alarm1 = Alarm(time="2023-10-27 08:00", label="Morning")
+        alarm2 = Alarm(time="2023-10-27 12:00", label="Lunch")
         
         save_alarms([alarm1, alarm2], storage_file=self.test_file)
         
@@ -27,22 +27,22 @@ class TestStorage(unittest.TestCase):
         loaded = load_alarms(storage_file=self.test_file)
         self.assertEqual(len(loaded), 2)
         self.assertEqual(loaded[0].id, alarm1.id)
-        self.assertEqual(loaded[1].time, "12:00")
+        self.assertEqual(loaded[1].time, "2023-10-27 12:00")
         
     def test_load_empty_or_missing(self):
         loaded = load_alarms(storage_file=self.test_file)
         self.assertEqual(loaded, [])
         
     def test_add_alarm(self):
-        alarm = Alarm(time="15:00", label="Tea")
+        alarm = Alarm(time="2023-10-27 15:00", label="Tea")
         add_alarm(alarm, storage_file=self.test_file)
         
         loaded = load_alarms(storage_file=self.test_file)
         self.assertEqual(len(loaded), 1)
-        self.assertEqual(loaded[0].time, "15:00")
+        self.assertEqual(loaded[0].time, "2023-10-27 15:00")
         
     def test_delete_alarm(self):
-        alarm = Alarm(time="15:00", label="Tea")
+        alarm = Alarm(time="2023-10-27 15:00", label="Tea")
         add_alarm(alarm, storage_file=self.test_file)
         
         result = delete_alarm(alarm.id, storage_file=self.test_file)

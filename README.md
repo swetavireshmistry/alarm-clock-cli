@@ -3,7 +3,7 @@
 A lightweight, robust, and clean Alarm Clock command-line application built in Python. Focusing on code quality, clean architecture, and maintainability.
 
 ## Features
-- **Set Alarms**: Add new alarms with custom labels using 24-hour time format.
+- **Set Alarms**: Add new alarms with custom labels using `YYYY-MM-DD HH:MM` (24-hour time format).
 - **List Alarms**: View all pending alarms in a clear tabular format.
 - **Snooze Alarms**: Snooze an alarm by ID to push it forward by a specified number of minutes.
 - **Delete Alarms**: Remove alarms by their unique ID.
@@ -12,9 +12,9 @@ A lightweight, robust, and clean Alarm Clock command-line application built in P
 
 ## Assumptions
 - Alarms are one-off and do not recur.
+- Alarms must be set for a future date/time. Past dates are rejected.
 - Time is entered and evaluated in the local system timezone.
-- A 24-hour time format (HH:MM) is used.
-- If an alarm is set for a time that has already passed today, it is automatically scheduled for tomorrow.
+- A 24-hour time format with full date (`YYYY-MM-DD HH:MM`) is used.
 - The monitoring loop (`run` command) runs in the foreground of a terminal session.
 
 ## Architecture & Design Decisions
@@ -54,8 +54,8 @@ pip install -r requirements.txt
 
 ### 1. Set an Alarm
 ```bash
-python3 main.py set 07:30 "Wake up"
-python3 main.py set 14:00 "Meeting"
+python3 main.py set "2026-07-29 07:30" "Wake up"
+python3 main.py set "2026-07-30 14:00" "Meeting"
 ```
 
 ### 2. List Alarms

@@ -10,5 +10,17 @@
         "time": "10:52",
         "label": "Meeting",
         "is_active": true
+    },
+    {
+        "id": "458a7a26",
+        "time": "07:30",
+        "label": "Wake up",
+        "is_active": true
+    },
+    {
+        "id": "4b437cb6",
+        "time": "2026-07-29 11:59",
+        "label": "Wake up",
+        "is_active": true
     }
 ]
